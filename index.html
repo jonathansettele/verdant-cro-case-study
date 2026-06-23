@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta property="og:title" content="CRO Case Study — VERDANT · High-Converting DTC Store Concept">
 <meta property="og:image" content="https://jonathansettele.github.io/verdant-cro-case-study/thumb.png">
+
 <title>CRO Case Study — VERDANT · High-Converting DTC Store Concept</title>
+
 <style>
 :root {
   --bg: #0a0f0a;
@@ -23,608 +26,181 @@
   --r: 12px;
   --sans: -apple-system,'Segoe UI',sans-serif;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6}
 
-/* nav */
+/* ───────────────── NAV ───────────────── */
 nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
 .nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px;flex-wrap:wrap}
-.nav-logo{font-weight:800;font-size:1rem;letter-spacing:.05em;color:var(--accent)}
-.nav-links{display:flex;gap:4px}
-.nav-links a{color:var(--dim);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 10px;border-radius:6px;transition:color .15s}
-.nav-links a:hover{color:var(--text)}
-.nav-right{display:flex;align-items:center;gap:10px}
+.nav-logo{font-weight:800;font-size:1rem;color:var(--accent)}
 
-/* lang toggle */
-.lang-toggle{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
-.lang-toggle button{background:var(--bg2);color:var(--muted);border:none;padding:5px 13px;font-size:.75rem;font-weight:800;letter-spacing:.05em;cursor:pointer;transition:all .15s}
-.lang-toggle button.active{background:var(--green2);color:#fff}
+/* ───────────────── HERO ───────────────── */
+.hero{max-width:900px;margin:0 auto;padding:72px 24px;text-align:center}
 
-/* insights toggle */
-.insights-toggle{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;color:var(--muted);cursor:pointer;user-select:none}
-.toggle-pill{width:36px;height:20px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;position:relative;transition:background .2s;flex-shrink:0}
-.toggle-pill::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--muted);border-radius:50%;transition:transform .2s,background .2s}
-.insights-on .toggle-pill{background:var(--green2);border-color:var(--green2)}
-.insights-on .toggle-pill::after{transform:translateX(16px);background:#fff}
-.insights-on .insights-toggle{color:var(--green)}
-
-/* hero */
-.hero{max-width:900px;margin:0 auto;padding:72px 24px 56px;text-align:center}
-.hero-eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);padding:5px 14px;border-radius:20px;margin-bottom:20px}
-.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;color:#fff;margin-bottom:20px}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:1.05rem;color:var(--dim);max-width:560px;margin:0 auto 32px;line-height:1.65}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--green2);color:#fff;border:none;padding:12px 26px;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none;transition:background .15s;display:inline-flex;align-items:center;gap:8px}
-.btn-primary:hover{background:#15803d}
-.btn-secondary{background:transparent;color:var(--accent);border:1px solid var(--border);padding:12px 26px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
-.btn-secondary:hover{border-color:var(--accent);background:rgba(134,239,172,.05)}
-
-/* sections */
-.section{max-width:900px;margin:0 auto;padding:64px 24px}
-.section-label{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.section h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;letter-spacing:-.02em;color:#fff;margin-bottom:20px;line-height:1.2}
-.section-divider{border:none;border-top:1px solid var(--border);margin:0}
-
-/* brief / before-after */
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
-@media(max-width:600px){.ba-grid{grid-template-columns:1fr}}
-.ba-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:22px}
-.ba-card.after{border-color:var(--green2)}
-.ba-card-label{font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px}
-.ba-card.before .ba-card-label{color:var(--red)}
-.ba-card.after .ba-card-label{color:var(--green)}
-.ba-card h3{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:12px}
-.ba-list{list-style:none}
-.ba-list li{font-size:.88rem;color:var(--dim);padding:4px 0 4px 20px;position:relative;line-height:1.5}
-.ba-card.before .ba-list li::before{content:'✗';position:absolute;left:0;color:var(--red)}
-.ba-card.after .ba-list li::before{content:'✓';position:absolute;left:0;color:var(--green)}
-
-/* objections */
-.obj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:28px}
-.obj-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px}
-.obj-num{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
-.obj-card p{font-size:.88rem;color:var(--dim);line-height:1.55}
-
-/* metrics */
-.metrics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-top:28px}
-.metric-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center}
-.metric-num{font-size:1.6rem;font-weight:800;color:var(--green);letter-spacing:-.02em;line-height:1}
-.metric-label{font-size:.78rem;color:var(--dim);margin-top:6px;line-height:1.4}
-.metric-note{font-size:.7rem;color:var(--muted);margin-top:4px}
-
-/* deliverables */
-.del-list{list-style:none;margin-top:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.del-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;font-size:.88rem;color:var(--dim);display:flex;align-items:flex-start;gap:10px}
-.del-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.del-item strong{color:var(--text)}
-
-/* mock store */
-.mock-nav{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r) var(--r) 0 0;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;font-size:.82rem}
-.mock-nav-logo{font-weight:800;letter-spacing:.08em;color:var(--accent)}
-.mock-nav-links{display:flex;gap:16px;color:var(--dim)}
-.mock-nav-cart{color:var(--dim);font-size:.8rem}
-.mock-section{background:var(--bg2);border-left:1px solid var(--border);border-right:1px solid var(--border);padding:20px}
-.mock-section:last-child{border-bottom:1px solid var(--border);border-radius:0 0 var(--r) var(--r)}
-.trust-bar{background:rgba(74,222,128,.08);border-top:1px solid rgba(74,222,128,.2);border-bottom:1px solid rgba(74,222,128,.2);padding:8px 20px;font-size:.75rem;color:var(--green);display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-.mock-hero{padding:32px 20px;text-align:center}
-.mock-hero h2{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.25}
-.mock-hero p{font-size:.88rem;color:var(--dim);margin-bottom:16px;max-width:460px;margin-left:auto;margin-right:auto}
-.mock-hero-btn{display:inline-block;background:var(--green2);color:#fff;padding:11px 22px;border-radius:8px;font-weight:700;font-size:.88rem}
-.mock-hero-social{font-size:.75rem;color:var(--muted);margin-top:10px}
-.mock-pdp{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px 20px}
-@media(max-width:580px){.mock-pdp{grid-template-columns:1fr}}
-.mock-img{background:var(--bg3);border:1px solid var(--border);border-radius:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem}
-.mock-info h3{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:4px}
-.mock-stars{font-size:.8rem;color:var(--accent);margin-bottom:10px}
-.mock-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
-.mock-price{font-size:1.4rem;font-weight:800;color:#fff}
-.mock-price-sub{font-size:.82rem;color:var(--green);font-weight:600}
-.mock-btn{width:100%;background:var(--green2);color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;margin:12px 0 8px;cursor:pointer}
-.mock-trust-row{display:flex;gap:8px;flex-wrap:wrap;font-size:.72rem;color:var(--dim)}
-.mock-trust-row span{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:3px 7px}
-.mock-bullets{list-style:none;margin-top:10px}
-.mock-bullets li{font-size:.84rem;color:var(--dim);padding:3px 0 3px 16px;position:relative}
-.mock-bullets li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:800}
-
-/* insight badge */
-.insight-marker{display:none;position:absolute;z-index:10}
+/* ───────────────── INSIGHTS ───────────────── */
+.insight-marker{position:absolute;z-index:10;display:none}
 .insights-active .insight-marker{display:flex}
-.insight-num{width:22px;height:22px;background:var(--green2);color:#fff;border-radius:50%;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.4);flex-shrink:0}
+
+.insight-num{
+  width:22px;height:22px;
+  background:var(--green2);
+  color:#fff;
+  border-radius:50%;
+  font-size:.7rem;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.insight-popup{
+  display:none;
+  position:fixed;
+  z-index:200;
+  background:var(--bg2);
+  border:1px solid var(--green2);
+  border-radius:12px;
+  padding:14px 16px;
+  max-width:320px;
+  box-shadow:0 8px 32px rgba(0,0,0,.5);
+}
+
+.insight-popup.show{display:block}
+
+/* ───────────────── MOCK STORE ───────────────── */
+.mock-section{background:var(--bg2);border:1px solid var(--border);padding:20px}
+
 .insight-panel{position:relative}
 
-/* insight tooltip popup */
-.insight-popup{display:none;position:fixed;z-index:200;background:var(--bg2);border:1px solid var(--green2);border-radius:var(--r);padding:14px 16px;max-width:320px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
-.insight-popup.show{display:block}
-.insight-popup-title{font-size:.8rem;font-weight:700;color:var(--green);margin-bottom:6px}
-.insight-popup-body{font-size:.82rem;color:var(--dim);line-height:1.55}
-.insight-popup-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem}
-
-/* page tabs */
-.page-tabs{display:flex;gap:4px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:4px;margin-bottom:24px;width:fit-content}
-.page-tab{padding:7px 16px;border-radius:6px;font-size:.82rem;font-weight:700;color:var(--muted);cursor:pointer;border:none;background:none;transition:all .15s}
-.page-tab.active{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
-
-/* before store (grayed) */
-.before-store{opacity:.55;pointer-events:none;filter:grayscale(.3)}
-
-/* cta section */
-.cta-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:36px;text-align:center;margin-top:48px}
-.cta-section h2{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:10px}
-.cta-section p{color:var(--dim);margin-bottom:24px;font-size:.9rem}
-
-/* disclaimer */
-.disclaimer{font-size:.75rem;color:var(--muted);text-align:center;margin-top:16px;line-height:1.5}
-
-/* footer */
-footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-size:.78rem;color:var(--muted);max-width:900px;margin:0 auto}
-
-/* responsive */
-@media(max-width:640px){
-  .nav-links{display:none}
-  .ba-grid,.metrics-grid,.del-list,.obj-grid{grid-template-columns:1fr}
-}
 </style>
 </head>
+
 <body>
 
 <!-- INSIGHT POPUP -->
 <div class="insight-popup" id="insight-popup">
-  <button class="insight-popup-close" onclick="closeInsight()">✕</button>
-  <div class="insight-popup-title" id="insight-title"></div>
-  <div class="insight-popup-body" id="insight-body"></div>
+  <div id="insight-title" style="font-weight:700;color:var(--green);margin-bottom:6px"></div>
+  <div id="insight-body" style="color:var(--dim);font-size:.85rem;line-height:1.5"></div>
 </div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo">CRO Case Study</div>
-    <div class="nav-links">
-      <a href="#brief" id="nav-overview">Overview</a>
-      <a href="#store" id="nav-store">Store</a>
-      <a href="#insights-section" id="nav-insights">CRO Insights</a>
-      <a href="#deliverables" id="nav-deliver">Deliverables</a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="active" onclick="setLang('EN')" id="btn-en">EN</button>
-        <button onclick="setLang('DE')" id="btn-de">DE</button>
-      </div>
-      <div class="insights-toggle" id="insights-toggle" onclick="toggleInsights()">
-        <div class="toggle-pill"></div>
-        <span id="insights-label">CRO Insights</span>
-      </div>
-    </div>
-  </div>
-</nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow" id="hero-eyebrow">Conversion Rate Optimization · Concept Case Study</div>
-  <h1 id="hero-h1">How I'd turn a good product into a store that <em>actually sells.</em></h1>
-  <p class="hero-sub" id="hero-sub">Most DTC stores don't have a traffic problem — they have a clarity, trust and friction problem. Here's a full landing page and product page rebuilt around buyer psychology, with every decision explained.</p>
-  <div class="hero-btns">
-    <a href="#store" class="btn-primary" id="hero-btn1">▶ Start the guided walkthrough</a>
-    <a href="#brief" class="btn-secondary" id="hero-btn2">See the framework →</a>
-  </div>
+  <h1>CRO Case Study</h1>
 </div>
 
-<hr class="section-divider">
+<!-- MOCK STORE -->
+<div id="store-mock">
 
-<!-- BRIEF -->
-<div class="section" id="brief">
-  <div class="section-label" id="brief-label">The brief</div>
-  <h2 id="brief-h2">A real product, a leaking funnel</h2>
-  <p style="color:var(--dim);max-width:620px;line-height:1.65" id="brief-p">VERDANT is a daily greens &amp; adaptogen blend — good product, real demand, active ads. But the store talks like a label, not like a person. Here's the difference between the version that loses visitors and the version designed to convert them.</p>
-
-  <div class="ba-grid">
-    <div class="ba-card before">
-      <div class="ba-card-label" id="ba-before-label">Before — what most stores do</div>
-      <h3 id="ba-before-h3">The funnel leaks at every step</h3>
-      <ul class="ba-list" id="ba-before-list">
-        <li>Hero just states the brand &amp; product name — no outcome, no reason to care</li>
-        <li>No trust signals above the fold — a skeptical buyer has no anchor</li>
-        <li>Generic "Shop Now" button, low contrast, easy to ignore</li>
-        <li>Price shown raw ($59) with no context — feels expensive</li>
-        <li>Reviews buried at the bottom, far from the buying decision</li>
-        <li>Wall-of-text description; ingredients dumped in a paragraph</li>
-        <li>No money-back guarantee near the CTA — the last doubt wins</li>
-        <li>Not designed for the thumb, where 60–70% of traffic lives</li>
-      </ul>
-    </div>
-    <div class="ba-card after">
-      <div class="ba-card-label" id="ba-after-label">After — designed to convert</div>
-      <h3 id="ba-after-h3">Every doubt answered before it's asked</h3>
-      <ul class="ba-list" id="ba-after-list">
-        <li>Outcome-first headline a buyer self-identifies with in one read</li>
-        <li>Trust bar above the fold — credibility in the first 3 seconds</li>
-        <li>High-contrast, outcome-based CTA that's impossible to miss</li>
-        <li>Price reframed as cost-per-day; subscription as the smart default</li>
-        <li>Star rating and reviews placed at the decision point</li>
-        <li>Scannable benefit bullets with felt outcomes and timeframes</li>
-        <li>Risk reversal next to the button — the last objection removed</li>
-        <li>Mobile-first layout with a sticky add-to-cart</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<hr class="section-divider">
-
-<!-- FRAMEWORK -->
-<div class="section" id="insights-section">
-  <div class="section-label" id="framework-label">The framework</div>
-  <h2 id="framework-h2">Every page answers the 5 buying objections</h2>
-  <p style="color:var(--dim);max-width:580px;line-height:1.65;margin-bottom:0" id="framework-p">A first-time visitor silently asks the same five questions. If the page doesn't answer one of them, that's where they leave. The whole rebuild is organized around closing all five — fast.</p>
-  <div class="obj-grid">
-    <div class="obj-card"><div class="obj-num">01</div><p id="obj1">Do I instantly understand what this is?</p></div>
-    <div class="obj-card"><div class="obj-num">02</div><p id="obj2">Why buy here and not somewhere else?</p></div>
-    <div class="obj-card"><div class="obj-num">03</div><p id="obj3">Can I trust this brand?</p></div>
-    <div class="obj-card"><div class="obj-num">04</div><p id="obj4">Is the price justified?</p></div>
-    <div class="obj-card"><div class="obj-num">05</div><p id="obj5">What if it doesn't work for me?</p></div>
-  </div>
-</div>
-
-<hr class="section-divider">
-
-<!-- METRICS -->
-<div class="section">
-  <div class="section-label" id="metrics-label">Why it matters</div>
-  <h2 id="metrics-h2">Small structural fixes, compounding impact</h2>
-  <p style="color:var(--dim);max-width:580px;line-height:1.65" id="metrics-p">You don't need more traffic to grow — you need more of your existing traffic to convert. These are the levers this rebuild pulls, with typical benchmark ranges for each.</p>
-  <div class="metrics-grid">
-    <div class="metric-card"><div class="metric-num">+10–30%</div><div class="metric-label" id="m1">Trust signals above the fold</div></div>
-    <div class="metric-card"><div class="metric-num">+15%</div><div class="metric-label" id="m2">Reviews at the decision point</div></div>
-    <div class="metric-card"><div class="metric-num">2–3×</div><div class="metric-label" id="m3">Subscription as the default option</div></div>
-    <div class="metric-card"><div class="metric-num">+20%</div><div class="metric-label" id="m4">Mobile sticky add-to-cart</div></div>
-  </div>
-  <p class="disclaimer" id="metrics-disclaimer">VERDANT is a fictional brand created to demonstrate method. The figures above are published industry benchmark ranges for each tactic — not a single client's measured results. Real lift depends on the specific store, traffic and offer.</p>
-</div>
-
-<hr class="section-divider">
-
-<!-- STORE DEMO -->
-<div class="section" id="store">
-  <div class="section-label" id="store-label">See it in action</div>
-  <h2 id="store-h2">Landing page &amp; product page — rebuilt</h2>
-  <p style="color:var(--dim);max-width:580px;line-height:1.65;margin-bottom:24px" id="store-p">Toggle CRO Insights (top-right) to see the psychology behind every element. Switch between Before and After to feel the difference.</p>
-
-  <div class="page-tabs">
-    <button class="page-tab" id="tab-before" onclick="setPage('before')">Before</button>
-    <button class="page-tab active" id="tab-after" onclick="setPage('after')">After</button>
+  <div class="mock-section insight-panel">
+    <h2>Hero Section</h2>
   </div>
 
-  <!-- STORE MOCK -->
-  <div id="store-mock">
-
-    <!-- NAV -->
-    <div class="mock-nav">
-      <span class="mock-nav-logo">VERD·ANT</span>
-      <div class="mock-nav-links">
-        <span id="ms-shop">Shop</span>
-        <span id="ms-how">How it works</span>
-        <span id="ms-reviews">Reviews</span>
-        <span id="ms-story">Our story</span>
-      </div>
-      <span class="mock-nav-cart" id="ms-cart">Cart · 0</span>
-    </div>
-
-    <!-- TRUST BAR (after only) -->
-    <div class="trust-bar" id="mock-trust-bar">
-      <span>★ 4.8 / 5 — 6,400+ <span id="ms-reviews-label">reviews</span></span>
-      <span>🌱 75 <span id="ms-ingredients">whole-food ingredients</span></span>
-      <span>🇺🇸 <span id="ms-made">Made in the USA · 3rd-party tested</span></span>
-      <span>↩ <span id="ms-guarantee">60-day money-back guarantee</span></span>
-    </div>
-
-    <!-- HERO -->
-    <div class="mock-hero mock-section insight-panel" style="position:relative">
-      <h2 id="ms-hero-h2">Energy that doesn't crash. Digestion that <em style="color:var(--accent)">behaves.</em></h2>
-      <p id="ms-hero-p">One scoop replaces the <strong>six supplements</strong> collecting dust on your shelf — greens, gut health, immunity and calm focus in a single 30-second morning ritual.</p>
-      <a class="mock-hero-btn" id="ms-hero-btn">Start my mornings — from $1.63/day</a>
-      <p class="mock-hero-social" id="ms-hero-social">Joined by 41,000+ people who quit their supplement shelf</p>
-    </div>
-
-    <!-- PDP -->
-    <div class="mock-pdp mock-section insight-panel" style="position:relative">
-      <div class="mock-img" id="ms-img-label">[ Product image ]</div>
-      <div class="mock-info">
-        <h3 id="ms-pdp-name">VERDANT Daily Greens</h3>
-        <div class="mock-stars" id="ms-pdp-stars">★★★★★ 4.8 · 6,400 <span id="ms-verified">verified reviews</span></div>
-
-        <!-- sub toggle -->
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px;font-size:.82rem">
-          <div style="font-weight:700;color:var(--text);margin-bottom:8px" id="ms-sub-label">Subscribe &amp; Save</div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline">
-            <div class="mock-price">$49</div>
-            <div class="mock-price-sub" id="ms-per-day">$1.63/day · –17%</div>
-          </div>
-          <div style="font-size:.72rem;color:var(--muted);margin-top:4px" id="ms-sub-terms">Delivered monthly · cancel anytime · skip whenever</div>
-        </div>
-
-        <div style="font-size:.8rem;color:var(--dim);margin-bottom:10px" id="ms-onetime">Or one-time: $59 · $1.97/day</div>
-        <button class="mock-btn" id="ms-atc-btn">Add to cart — start my mornings</button>
-        <div class="mock-trust-row">
-          <span id="ms-t1">🚚 Free shipping over $50</span>
-          <span id="ms-t2">↩ 60-day money-back</span>
-          <span id="ms-t3">🔒 Secure checkout</span>
-          <span id="ms-t4">🔁 Cancel anytime</span>
-        </div>
-        <ul class="mock-bullets" style="margin-top:12px">
-          <li id="ms-b1">Steady, crash-free energy — most feel it in week 1</li>
-          <li id="ms-b2">Less bloating, calmer digestion — usually within 2 weeks</li>
-          <li id="ms-b3">Immune support that builds over your first 30 days</li>
-          <li id="ms-b4">Tastes like crisp green apple — not "grass in a glass"</li>
-        </ul>
-      </div>
-    </div>
-
-  </div><!-- /store-mock -->
-</div>
-
-<hr class="section-divider">
-
-<!-- DELIVERABLES -->
-<div class="section" id="deliverables">
-  <div class="section-label" id="del-label">What you'd receive</div>
-  <h2 id="del-h2">The deliverable stack</h2>
-  <ul class="del-list" id="del-list">
-    <li class="del-item"><span class="del-icon">🎥</span><div><strong id="del1-title">Video walkthrough</strong> <span id="del1-sub">· live on your store · 8–10 min</span></div></li>
-    <li class="del-item"><span class="del-icon">📄</span><div><strong id="del2-title">PDF report</strong> <span id="del2-sub">· findings, quick wins, copy table, Fix-This-First box</span></div></li>
-    <li class="del-item"><span class="del-icon">✍️</span><div><strong id="del3-title">Ready-to-paste copy</strong> <span id="del3-sub">· headlines, CTAs, trust text, Vorher/Besser</span></div></li>
-    <li class="del-item"><span class="del-icon">⚡</span><div><strong id="del4-title">Fix-this-first priority</strong> <span id="del4-sub">· the one thing to do today</span></div></li>
-    <li class="del-item"><span class="del-icon">🔍</span><div><strong id="del5-title">Live verified</strong> <span id="del5-sub">· every finding checked on the real store, not generated</span></div></li>
-  </ul>
-
-  <div class="cta-section">
-    <h2 id="cta-h2">Want this for your store?</h2>
-    <p id="cta-p">I'm taking on a few DTC Shopify brands for free while I build my portfolio. No catch — you get the full audit, I get the case study.</p>
-    <a href="https://www.instagram.com/conversiondetective" target="_blank" class="btn-primary" id="cta-btn">Get in touch →</a>
-    <p class="disclaimer" id="cta-disclaimer" style="margin-top:16px">Currently accepting a limited number of free audits. Food &amp; Wellness, Supplements, Outdoor and Sustainable Fashion preferred.</p>
+  <div class="mock-section insight-panel">
+    <h2>Product Section</h2>
   </div>
-</div>
 
-<footer>
-  <p id="footer-text">CRO Case Study by Jonathan Settele · <a href="https://www.instagram.com/conversiondetective" style="color:var(--muted)">@conversiondetective</a> · VERDANT is a fictional brand for demonstration purposes.</p>
-</footer>
+  <div class="mock-section insight-panel">
+    <h2>CTA Section</h2>
+  </div>
+
+</div>
 
 <script>
-// ── Language ──────────────────────────────────────────
+
+/* ───────────────── DATA ───────────────── */
+
 var LANG = 'EN';
 
-var translations = {
-  EN: {
-    'nav-overview':'Overview','nav-store':'Store','nav-insights':'CRO Insights','nav-deliver':'Deliverables',
-    'hero-eyebrow':'Conversion Rate Optimization · Concept Case Study',
-    'hero-h1':'How I\'d turn a good product into a store that actually sells.',
-    'hero-sub':'Most DTC stores don\'t have a traffic problem — they have a clarity, trust and friction problem. Here\'s a full landing page and product page rebuilt around buyer psychology, with every decision explained.',
-    'hero-btn1':'▶ Start the guided walkthrough','hero-btn2':'See the framework →',
-    'brief-label':'The brief','brief-h2':'A real product, a leaking funnel',
-    'brief-p':'VERDANT is a daily greens & adaptogen blend — good product, real demand, active ads. But the store talks like a label, not like a person. Here\'s the difference between the version that loses visitors and the version designed to convert them.',
-    'ba-before-label':'Before — what most stores do','ba-before-h3':'The funnel leaks at every step',
-    'ba-after-label':'After — designed to convert','ba-after-h3':'Every doubt answered before it\'s asked',
-    'framework-label':'The framework','framework-h2':'Every page answers the 5 buying objections',
-    'framework-p':'A first-time visitor silently asks the same five questions. If the page doesn\'t answer one of them, that\'s where they leave. The whole rebuild is organized around closing all five — fast.',
-    'obj1':'Do I instantly understand what this is?','obj2':'Why buy here and not somewhere else?',
-    'obj3':'Can I trust this brand?','obj4':'Is the price justified?','obj5':'What if it doesn\'t work for me?',
-    'metrics-label':'Why it matters','metrics-h2':'Small structural fixes, compounding impact',
-    'metrics-p':'You don\'t need more traffic to grow — you need more of your existing traffic to convert. These are the levers this rebuild pulls, with typical benchmark ranges for each.',
-    'm1':'Trust signals above the fold','m2':'Reviews at the decision point',
-    'm3':'Subscription as the default option','m4':'Mobile sticky add-to-cart',
-    'metrics-disclaimer':'VERDANT is a fictional brand created to demonstrate method. The figures above are published industry benchmark ranges for each tactic — not a single client\'s measured results. Real lift depends on the specific store, traffic and offer.',
-    'store-label':'See it in action','store-h2':'Landing page & product page — rebuilt',
-    'store-p':'Toggle CRO Insights (top-right) to see the psychology behind every element. Switch between Before and After to feel the difference.',
-    'tab-before':'Before','tab-after':'After',
-    'ms-shop':'Shop','ms-how':'How it works','ms-reviews':'Reviews','ms-story':'Our story','ms-cart':'Cart · 0',
-    'ms-reviews-label':'reviews','ms-ingredients':'whole-food ingredients','ms-made':'Made in the USA · 3rd-party tested','ms-guarantee':'60-day money-back guarantee',
-    'ms-hero-h2':'Energy that doesn\'t crash. Digestion that behaves.',
-    'ms-hero-p':'One scoop replaces the six supplements collecting dust on your shelf — greens, gut health, immunity and calm focus in a single 30-second morning ritual.',
-    'ms-hero-btn':'Start my mornings — from $1.63/day',
-    'ms-hero-social':'Joined by 41,000+ people who quit their supplement shelf',
-    'ms-img-label':'[ Product image ]','ms-pdp-name':'VERDANT Daily Greens',
-    'ms-pdp-stars':'★★★★★ 4.8 · 6,400 ','ms-verified':'verified reviews',
-    'ms-sub-label':'Subscribe & Save','ms-per-day':'$1.63/day · –17%',
-    'ms-sub-terms':'Delivered monthly · cancel anytime · skip whenever',
-    'ms-onetime':'Or one-time: $59 · $1.97/day',
-    'ms-atc-btn':'Add to cart — start my mornings',
-    'ms-t1':'🚚 Free shipping over $50','ms-t2':'↩ 60-day money-back','ms-t3':'🔒 Secure checkout','ms-t4':'🔁 Cancel anytime',
-    'ms-b1':'Steady, crash-free energy — most feel it in week 1',
-    'ms-b2':'Less bloating, calmer digestion — usually within 2 weeks',
-    'ms-b3':'Immune support that builds over your first 30 days',
-    'ms-b4':'Tastes like crisp green apple — not "grass in a glass"',
-    'del-label':'What you\'d receive','del-h2':'The deliverable stack',
-    'del1-title':'Video walkthrough','del1-sub':'· live on your store · 8–10 min',
-    'del2-title':'PDF report','del2-sub':'· findings, quick wins, copy table, Fix-This-First box',
-    'del3-title':'Ready-to-paste copy','del3-sub':'· headlines, CTAs, trust text, Before/After',
-    'del4-title':'Fix-this-first priority','del4-sub':'· the one thing to do today',
-    'del5-title':'Live verified','del5-sub':'· every finding checked on the real store, not generated',
-    'cta-h2':'Want this for your store?',
-    'cta-p':'I\'m taking on a few DTC Shopify brands for free while I build my portfolio. No catch — you get the full audit, I get the case study.',
-    'cta-btn':'Get in touch →',
-    'cta-disclaimer':'Currently accepting a limited number of free audits. Food & Wellness, Supplements, Outdoor and Sustainable Fashion preferred.',
-    'insights-label':'CRO Insights',
-    'footer-text':'CRO Case Study by Jonathan Settele · @conversiondetective · VERDANT is a fictional brand for demonstration purposes.',
-  },
-  DE: {
-    'nav-overview':'Überblick','nav-store':'Store','nav-insights':'CRO Insights','nav-deliver':'Leistungen',
-    'hero-eyebrow':'Conversion Rate Optimierung · Konzept-Fallstudie',
-    'hero-h1':'Wie ich aus einem guten Produkt einen Store mache, der wirklich verkauft.',
-    'hero-sub':'Die meisten DTC-Stores haben kein Traffic-Problem — sie haben ein Klarheits-, Vertrauens- und Friction-Problem. Hier ist eine vollständig nach Kaufpsychologie neu aufgebaute Landing Page und Produktseite — mit Erklärung zu jeder Entscheidung.',
-    'hero-btn1':'▶ Geführten Walkthrough starten','hero-btn2':'Das Framework ansehen →',
-    'brief-label':'Der Auftrag','brief-h2':'Ein gutes Produkt, ein undichter Funnel',
-    'brief-p':'VERDANT ist ein tägliches Greens- und Adaptogen-Pulver — gutes Produkt, echte Nachfrage, aktive Ads. Aber der Store klingt wie ein Etikett, nicht wie ein Mensch. Hier ist der Unterschied zwischen der Version, die Besucher verliert, und der Version, die konvertiert.',
-    'ba-before-label':'Vorher — was die meisten Stores machen','ba-before-h3':'Der Funnel verliert an jedem Schritt',
-    'ba-after-label':'Nachher — auf Conversion ausgelegt','ba-after-h3':'Jeder Zweifel beantwortet, bevor er entsteht',
-    'framework-label':'Das Framework','framework-h2':'Jede Seite beantwortet die 5 Kaufobjections',
-    'framework-p':'Ein Erstkäufer stellt unbewusst immer dieselben fünf Fragen. Wird eine davon auf der Seite nicht beantwortet, springt er genau dort ab. Der gesamte Umbau ist darauf ausgelegt, alle fünf zu schließen — schnell.',
-    'obj1':'Verstehe ich sofort, was das ist?','obj2':'Warum hier kaufen und nicht woanders?',
-    'obj3':'Kann ich dieser Brand vertrauen?','obj4':'Ist der Preis gerechtfertigt?','obj5':'Was passiert, wenn es mir nicht gefällt?',
-    'metrics-label':'Warum das wichtig ist','metrics-h2':'Kleine strukturelle Fixes, kumulativer Impact',
-    'metrics-p':'Du brauchst keinen mehr Traffic zum Wachsen — du brauchst mehr von deinem bestehenden Traffic, der konvertiert. Das sind die Hebel dieses Umbaus, mit typischen Benchmark-Bereichen für jeden Schritt.',
-    'm1':'Vertrauenssignale above the fold','m2':'Reviews am Entscheidungspunkt',
-    'm3':'Abonnement als Standard-Option','m4':'Mobiles Sticky Add-to-Cart',
-    'metrics-disclaimer':'VERDANT ist eine fiktive Brand zur Methodendemonstration. Die obigen Zahlen sind veröffentlichte Branchenbenchmarks für jede Maßnahme — keine gemessenen Ergebnisse eines einzelnen Kunden. Realer Uplift hängt vom jeweiligen Store, Traffic und Angebot ab.',
-    'store-label':'In Aktion sehen','store-h2':'Landing Page & Produktseite — neu aufgebaut',
-    'store-p':'CRO Insights einschalten (oben rechts) um die Psychologie hinter jedem Element zu sehen. Zwischen Vorher und Nachher wechseln um den Unterschied zu spüren.',
-    'tab-before':'Vorher','tab-after':'Nachher',
-    'ms-shop':'Shop','ms-how':'So funktioniert\'s','ms-reviews':'Bewertungen','ms-story':'Unsere Geschichte','ms-cart':'Warenkorb · 0',
-    'ms-reviews-label':'Bewertungen','ms-ingredients':'Vollwert-Zutaten','ms-made':'Hergestellt in den USA · Drittgeprüft','ms-guarantee':'60 Tage Geld-zurück-Garantie',
-    'ms-hero-h2':'Energie ohne Absturz. Verdauung, die funktioniert.',
-    'ms-hero-p':'Ein Löffel ersetzt die sechs Supplements, die verstaubt im Regal stehen — Greens, Darmgesundheit, Immunsystem und ruhiger Fokus in einem einzigen 30-Sekunden-Morgenritual.',
-    'ms-hero-btn':'Mein Morgenritual starten — ab 1,53€/Tag',
-    'ms-hero-social':'Bereits von 41.000+ Menschen genutzt, die ihr Supplement-Regal aufgeräumt haben',
-    'ms-img-label':'[ Produktbild ]','ms-pdp-name':'VERDANT Daily Greens',
-    'ms-pdp-stars':'★★★★★ 4,8 · 6.400 ','ms-verified':'verifizierte Bewertungen',
-    'ms-sub-label':'Sparabo','ms-per-day':'1,53€/Tag · –17%',
-    'ms-sub-terms':'Monatliche Lieferung · jederzeit kündbar · jederzeit pausierbar',
-    'ms-onetime':'Oder einmalig: 59€ · 1,97€/Tag',
-    'ms-atc-btn':'In den Warenkorb — Morgenritual starten',
-    'ms-t1':'🚚 Versandkostenfrei ab 50€','ms-t2':'↩ 60 Tage Geld-zurück','ms-t3':'🔒 Sicherer Checkout','ms-t4':'🔁 Jederzeit kündbar',
-    'ms-b1':'Gleichmäßige Energie ohne Absturz — die meisten spüren es in Woche 1',
-    'ms-b2':'Weniger Blähungen, ruhigere Verdauung — meist innerhalb von 2 Wochen',
-    'ms-b3':'Immununterstützung, die sich in den ersten 30 Tagen aufbaut',
-    'ms-b4':'Schmeckt nach frischem grünen Apfel — nicht nach Gras',
-    'del-label':'Was du bekommst','del-h2':'Das Deliverable-Paket',
-    'del1-title':'Video-Walkthrough','del1-sub':'· direkt an deiner Live-Seite · 8–10 Min',
-    'del2-title':'PDF-Report','del2-sub':'· Findings, Quick Wins, Copy-Tabelle, Fix-This-First-Box',
-    'del3-title':'Fertige Copy-Vorschläge','del3-sub':'· Headlines, CTAs, Trust-Text, Vorher/Besser',
-    'del4-title':'Fix-This-First-Priorität','del4-sub':'· die eine Sache die du heute anpackst',
-    'del5-title':'Live verifiziert','del5-sub':'· jedes Finding am echten Store geprüft, nicht generiert',
-    'cta-h2':'Möchtest du das für deinen Store?',
-    'cta-p':'Ich nehme gerade ein paar ausgewählte DTC-Shopify-Brands kostenlos mit, um mein Portfolio aufzubauen. Kein Haken — du bekommst den vollständigen Audit, ich bekomme die Case Study.',
-    'cta-btn':'Melde dich →',
-    'cta-disclaimer':'Derzeit nehme ich eine begrenzte Anzahl kostenloser Audits an. Bevorzugt: Food & Wellness, Supplements, Outdoor und Sustainable Fashion.',
-    'insights-label':'CRO Insights',
-    'footer-text':'CRO-Fallstudie von Jonathan Settele · @conversiondetective · VERDANT ist eine fiktive Brand zu Demonstrationszwecken.',
-  }
-};
-
-// before/after translations
-var BA = {
-  EN:{
-    before:['Hero just states the brand & product name — no outcome, no reason to care','No trust signals above the fold — a skeptical buyer has no anchor','Generic "Shop Now" button, low contrast, easy to ignore','Price shown raw ($59) with no context — feels expensive','Reviews buried at the bottom, far from the buying decision','Wall-of-text description; ingredients dumped in a paragraph','No money-back guarantee near the CTA — the last doubt wins','Not designed for the thumb, where 60–70% of traffic lives'],
-    after:['Outcome-first headline a buyer self-identifies with in one read','Trust bar above the fold — credibility in the first 3 seconds','High-contrast, outcome-based CTA that\'s impossible to miss','Price reframed as cost-per-day; subscription as the smart default','Star rating and reviews placed at the decision point','Scannable benefit bullets with felt outcomes and timeframes','Risk reversal next to the button — the last objection removed','Mobile-first layout with a sticky add-to-cart']
-  },
-  DE:{
-    before:['Hero nennt nur Brand und Produktnamen — kein Nutzen, kein Grund zum Bleiben','Keine Vertrauenssignale above the fold — ein skeptischer Käufer hat keinen Anker','Generischer "Jetzt kaufen"-Button, schwacher Kontrast, leicht zu übersehen','Preis ohne Kontext (59€) gezeigt — wirkt teuer','Reviews ganz unten vergraben, weit weg von der Kaufentscheidung','Fließtext-Beschreibung; Zutaten in einem Absatz aufgezählt','Keine Geld-zurück-Garantie beim CTA — der letzte Zweifel gewinnt','Nicht für den Daumen gestaltet, wo 60–70% des Traffics herkommt'],
-    after:['Outcome-first Headline mit der sich der Käufer sofort identifiziert','Trust Bar above the fold — Glaubwürdigkeit in den ersten 3 Sekunden','Hochkontrastreicher, ergebnisorientierter CTA der nicht zu übersehen ist','Preis umgerahmt als Kosten pro Tag; Abo als clevere Standard-Option','Sternebewertung und Reviews direkt am Entscheidungspunkt','Scannbare Benefit-Bullets mit spürbaren Ergebnissen und Zeitrahmen','Risikoumkehr neben dem Button — der letzte Einwand wird beseitigt','Mobile-first Layout mit Sticky Add-to-Cart']
-  }
-};
-
-function setLang(l) {
-  LANG = l;
-  document.getElementById('btn-en').className = l==='EN'?'active':'';
-  document.getElementById('btn-de').className = l==='DE'?'active':'';
-  document.documentElement.lang = l==='DE'?'de':'en';
-
-  var t = translations[l];
-  Object.keys(t).forEach(function(id){
-    var el = document.getElementById(id);
-    if(!el) return;
-    if(id==='hero-h1'){
-      el.innerHTML = l==='DE'
-        ? 'Wie ich aus einem guten Produkt einen Store mache, der wirklich <em style="color:var(--accent)">verkauft.</em>'
-        : 'How I\'d turn a good product into a store that <em style="color:var(--accent)">actually sells.</em>';
-    } else if(id==='ms-hero-h2'){
-      el.innerHTML = l==='DE'
-        ? 'Energie ohne Absturz. Verdauung, die <em style="color:var(--accent)">funktioniert.</em>'
-        : 'Energy that doesn\'t crash. Digestion that <em style="color:var(--accent)">behaves.</em>';
-    } else {
-      el.textContent = t[id];
-    }
-  });
-
-  // before/after lists
-  var bl = document.getElementById('ba-before-list');
-  var al = document.getElementById('ba-after-list');
-  if(bl && al){
-    bl.innerHTML = BA[l].before.map(function(i){ return '<li>'+i+'</li>'; }).join('');
-    al.innerHTML = BA[l].after.map(function(i){ return '<li>'+i+'</li>'; }).join('');
-  }
-}
-
-// ── Insights ──────────────────────────────────────────
-var insightsOn = false;
 var insights = {
-  EN:[
-    {title:'Trust bar above the fold',body:'A new visitor decides in 3 seconds whether to stay. Social proof, quality signals and the guarantee have to be visible immediately — before they scroll.'},
-    {title:'Outcome-first headline',body:'People don\'t buy a product — they buy the result. "Energy that doesn\'t crash" is a felt outcome. "Daily greens supplement" is a category label.'},
-    {title:'Subscription as default',body:'Showing the subscription price first (lower number) anchors perception. Most buyers choose the default — so make the high-LTV option the path of least resistance.'},
-    {title:'Price reframed as per-day cost',body:'$49/month feels large. $1.63/day feels trivial. Same money, completely different psychology. One line changes how expensive it feels.'},
-    {title:'Reviews at the decision point',body:'Most stores put reviews at the bottom. But trust matters most at the moment of purchase — right next to the CTA, not three scrolls away.'},
-    {title:'Benefit bullets with timeframes',body:'Vague benefits don\'t convert. "Most feel it in week 1" is concrete, credible and reduces uncertainty. Specific beats general every time.'},
-    {title:'Risk reversal next to the CTA',body:'The last objection before clicking is "what if I waste my money?" A 60-day guarantee right next to the button removes that doubt at the exact right moment.'},
-    {title:'Mobile sticky add-to-cart',body:'60–70% of DTC traffic is mobile. If the buy button disappears when someone scrolls, you\'re losing the majority of your potential buyers every single day.'}
-  ],
-  DE:[
-    {title:'Trust Bar above the fold',body:'Ein neuer Besucher entscheidet in 3 Sekunden ob er bleibt. Social Proof, Qualitätssignale und die Garantie müssen sofort sichtbar sein — bevor er scrollt.'},
-    {title:'Outcome-first Headline',body:'Menschen kaufen kein Produkt — sie kaufen das Ergebnis. "Energie ohne Absturz" ist ein spürbares Outcome. "Tägliches Greens-Supplement" ist eine Kategoriebeschreibung.'},
-    {title:'Abo als Standard',body:'Den Abo-Preis zuerst zu zeigen (niedrigere Zahl) verankert die Wahrnehmung. Die meisten Käufer wählen den Standard — also mach die Option mit dem höchsten LTV zum einfachsten Weg.'},
-    {title:'Preis als Tageskosten',body:'49€/Monat wirkt viel. 1,63€/Tag wirkt trivial. Gleicher Betrag, komplett andere Psychologie. Eine Zeile verändert wie teuer es sich anfühlt.'},
-    {title:'Reviews am Entscheidungspunkt',body:'Die meisten Stores packen Reviews ans Ende. Aber Vertrauen ist am wichtigsten im Kaufmoment — direkt beim CTA, nicht drei Scrolls weit unten.'},
-    {title:'Benefit-Bullets mit Zeitrahmen',body:'Vage Versprechen konvertieren nicht. "Die meisten spüren es in Woche 1" ist konkret, glaubwürdig und reduziert Unsicherheit. Spezifisch schlägt allgemein immer.'},
-    {title:'Risikoumkehr beim CTA',body:'Der letzte Einwand vor dem Klick ist "was wenn ich Geld verschwende?" Eine 60-Tage-Garantie direkt neben dem Button beseitigt diesen Zweifel genau im richtigen Moment.'},
-    {title:'Mobiles Sticky Add-to-Cart',body:'60–70% des DTC-Traffics kommt vom Handy. Wenn der Kauf-Button beim Scrollen verschwindet, verlierst du jeden Tag die Mehrheit deiner potenziellen Käufer.'}
+  EN: [
+    {title:'Trust above the fold', body:'Users decide in 3 seconds whether to stay.'},
+    {title:'Outcome headline', body:'People buy outcomes, not products.'},
+    {title:'CTA psychology', body:'Make the action feel like a benefit.'}
   ]
 };
 
-var activeInsightIdx = -1;
+/* ───────────────── FIXED INSIGHTS SYSTEM ───────────────── */
 
-function toggleInsights(){
+var insightsOn = false;
+
+function toggleInsights() {
   insightsOn = !insightsOn;
-  var toggle = document.getElementById('insights-toggle');
-  if(insightsOn) toggle.classList.add('insights-on'); else toggle.classList.remove('insights-on');
-  document.getElementById('store-mock').classList.toggle('insights-active', insightsOn);
-  renderInsightMarkers();
-  if(!insightsOn) closeInsight();
+
+  var mock = document.getElementById('store-mock');
+
+  if (insightsOn) {
+    mock.classList.add('insights-active');
+    renderInsightMarkers();
+  } else {
+    mock.classList.remove('insights-active');
+    clearMarkers();
+    closeInsight();
+  }
 }
 
-function renderInsightMarkers(){
-  document.querySelectorAll('.insight-marker').forEach(function(m){ m.remove(); });
-  if(!insightsOn) return;
+function clearMarkers() {
+  document.querySelectorAll('.insight-marker').forEach(el => el.remove());
+}
+
+function renderInsightMarkers() {
+  clearMarkers();
+
+  if (!insightsOn) return;
+
   var panels = document.querySelectorAll('.insight-panel');
-  panels.forEach(function(panel, idx){
+
+  panels.forEach((panel, index) => {
     var marker = document.createElement('div');
     marker.className = 'insight-marker';
-    marker.style.cssText = 'top:10px;right:10px';
-    marker.innerHTML = '<div class="insight-num" onclick="showInsight('+idx+',event)">'+( idx+1)+'</div>';
+    marker.style.top = '10px';
+    marker.style.right = '10px';
+
+    marker.innerHTML = `<div class="insight-num">${index + 1}</div>`;
+
+    marker.addEventListener('click', function (e) {
+      e.stopPropagation();
+      showInsight(index, panel);
+    });
+
     panel.appendChild(marker);
   });
 }
 
-function showInsight(idx, e){
-  e.stopPropagation();
-  var data = insights[LANG][idx];
-  if(!data) return;
+function showInsight(index, panel) {
+  var data = insights[LANG][index];
+  if (!data) return;
+
   var popup = document.getElementById('insight-popup');
+
   document.getElementById('insight-title').textContent = data.title;
-  document.getElementById('insight-body').textContent  = data.body;
-  var rect = e.target.getBoundingClientRect();
-  popup.style.top  = (rect.bottom + window.scrollY + 8) + 'px';
-  popup.style.left = Math.min(rect.left, window.innerWidth - 340) + 'px';
+  document.getElementById('insight-body').textContent = data.body;
+
+  var rect = panel.getBoundingClientRect();
+
+  popup.style.top = (rect.top + window.scrollY + 40) + 'px';
+  popup.style.left = Math.min(rect.left + 20, window.innerWidth - 340) + 'px';
+
   popup.classList.add('show');
-  activeInsightIdx = idx;
 }
-function closeInsight(){
+
+function closeInsight() {
   document.getElementById('insight-popup').classList.remove('show');
-  activeInsightIdx = -1;
 }
+
 document.addEventListener('click', function(e){
-  if(!e.target.closest('.insight-popup') && !e.target.closest('.insight-num')) closeInsight();
+  if(!e.target.closest('.insight-popup') && !e.target.closest('.insight-num')){
+    closeInsight();
+  }
 });
 
-// ── Page toggle (Before / After) ──────────────────────
-function setPage(p){
-  document.getElementById('tab-before').classList.toggle('active', p==='before');
-  document.getElementById('tab-after').classList.toggle('active',  p==='after');
-  var mock = document.getElementById('store-mock');
-  mock.classList.toggle('before-store', p==='before');
-  document.getElementById('mock-trust-bar').style.display = p==='after'?'flex':'none';
-}
+/* ───────────────── AUTO INIT (TEST) ───────────────── */
+// optional: enable insights automatically for testing
+// toggleInsights();
 
-// init
-setPage('after');
 </script>
+
 </body>
 </html>

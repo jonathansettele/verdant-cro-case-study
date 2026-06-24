@@ -45,9 +45,9 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 .insights-toggle{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;color:var(--muted);cursor:pointer;user-select:none}
 .toggle-pill{width:36px;height:20px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;position:relative;transition:background .2s;flex-shrink:0}
 .toggle-pill::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--muted);border-radius:50%;transition:transform .2s,background .2s}
-.insights-on .toggle-pill{background:var(--green2);border-color:var(--green2)}
-.insights-on .toggle-pill::after{transform:translateX(16px);background:#fff}
-.insights-on .insights-toggle{color:var(--green)}
+.insights-toggle.insights-on .toggle-pill{background:var(--green2);border-color:var(--green2)}
+.insights-toggle.insights-on .toggle-pill::after{transform:translateX(16px);background:#fff}
+.insights-toggle.insights-on{color:var(--green)}
 
 /* hero */
 .hero{max-width:900px;margin:0 auto;padding:72px 24px 56px;text-align:center}
@@ -107,7 +107,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 .mock-nav-cart{color:var(--dim);font-size:.8rem}
 .mock-section{background:var(--bg2);border-left:1px solid var(--border);border-right:1px solid var(--border);padding:20px}
 .mock-section:last-child{border-bottom:1px solid var(--border);border-radius:0 0 var(--r) var(--r)}
-.trust-bar{background:rgba(74,222,128,.08);border-top:1px solid rgba(74,222,128,.2);border-bottom:1px solid rgba(74,222,128,.2);padding:8px 20px;font-size:.75rem;color:var(--green);display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.trust-bar{background:rgba(74,222,128,.08);border-top:1px solid rgba(74,222,128,.2);border-bottom:1px solid rgba(74,222,128,.2);padding:8px 20px;font-size:.75rem;color:var(--green);display:flex;gap:20px;flex-wrap:wrap;justify-content:center;align-items:center}
 .mock-hero{padding:32px 20px;text-align:center}
 .mock-hero h2{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.25}
 .mock-hero p{font-size:.88rem;color:var(--dim);margin-bottom:16px;max-width:460px;margin-left:auto;margin-right:auto}
@@ -122,24 +122,35 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 .mock-price{font-size:1.4rem;font-weight:800;color:#fff}
 .mock-price-sub{font-size:.82rem;color:var(--green);font-weight:600}
 .mock-btn{width:100%;background:var(--green2);color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;margin:12px 0 8px;cursor:pointer}
-.mock-trust-row{display:flex;gap:8px;flex-wrap:wrap;font-size:.72rem;color:var(--dim)}
+.mock-trust-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:.72rem;color:var(--dim)}
 .mock-trust-row span{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:3px 7px}
 .mock-bullets{list-style:none;margin-top:10px}
 .mock-bullets li{font-size:.84rem;color:var(--dim);padding:3px 0 3px 16px;position:relative}
 .mock-bullets li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:800}
 
-/* insight badge */
-.insight-marker{display:none;position:absolute;z-index:10}
-.insights-active .insight-marker{display:flex}
-.insight-num{width:22px;height:22px;background:var(--green2);color:#fff;border-radius:50%;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.4);flex-shrink:0}
-.insight-panel{position:relative}
+/* ── INSIGHT MARKERS (numbered badges) ── */
+.insight-marker{
+  display:none;
+  align-items:center;justify-content:center;
+  width:21px;height:21px;border-radius:50%;
+  background:var(--green2);color:#fff;
+  font-size:.68rem;font-weight:800;line-height:1;
+  cursor:pointer;vertical-align:middle;
+  margin:0 0 0 7px;flex-shrink:0;
+  box-shadow:0 1px 6px rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.3);
+  transition:transform .12s,background .12s;
+}
+.insights-active .insight-marker{display:inline-flex}
+.insight-marker:hover,.insight-marker.active{transform:scale(1.18);background:var(--green);color:#04130a}
 
 /* insight tooltip popup */
 .insight-popup{display:none;position:fixed;z-index:200;background:var(--bg2);border:1px solid var(--green2);border-radius:var(--r);padding:14px 16px;max-width:320px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
 .insight-popup.show{display:block}
-.insight-popup-title{font-size:.8rem;font-weight:700;color:var(--green);margin-bottom:6px}
+.insight-popup-title{font-size:.82rem;font-weight:800;color:var(--green);margin-bottom:6px;padding-right:18px}
 .insight-popup-body{font-size:.82rem;color:var(--dim);line-height:1.55}
-.insight-popup-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem}
+.insight-popup-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem;line-height:1}
+.insight-popup-close:hover{color:var(--text)}
 
 /* page tabs */
 .page-tabs{display:flex;gap:4px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:4px;margin-bottom:24px;width:fit-content}
@@ -156,6 +167,10 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 
 /* disclaimer */
 .disclaimer{font-size:.75rem;color:var(--muted);text-align:center;margin-top:16px;line-height:1.5}
+
+/* hint shown when insights off */
+.insights-hint{font-size:.78rem;color:var(--muted);margin:14px 0 0;text-align:center}
+.insights-active ~ .insights-hint{display:none}
 
 /* footer */
 footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-size:.78rem;color:var(--muted);max-width:900px;margin:0 auto}
@@ -319,7 +334,7 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
     </div>
 
     <!-- HERO -->
-    <div class="mock-hero mock-section insight-panel" style="position:relative">
+    <div class="mock-hero mock-section insight-panel">
       <h2 id="ms-hero-h2">Energy that doesn't crash. Digestion that <em style="color:var(--accent)">behaves.</em></h2>
       <p id="ms-hero-p">One scoop replaces the <strong>six supplements</strong> collecting dust on your shelf — greens, gut health, immunity and calm focus in a single 30-second morning ritual.</p>
       <a class="mock-hero-btn" id="ms-hero-btn">Start my mornings — from $1.63/day</a>
@@ -327,7 +342,7 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
     </div>
 
     <!-- PDP -->
-    <div class="mock-pdp mock-section insight-panel" style="position:relative">
+    <div class="mock-pdp mock-section insight-panel">
       <div class="mock-img" id="ms-img-label">[ Product image ]</div>
       <div class="mock-info">
         <h3 id="ms-pdp-name">VERDANT Daily Greens</h3>
@@ -345,13 +360,13 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
 
         <div style="font-size:.8rem;color:var(--dim);margin-bottom:10px" id="ms-onetime">Or one-time: $59 · $1.97/day</div>
         <button class="mock-btn" id="ms-atc-btn">Add to cart — start my mornings</button>
-        <div class="mock-trust-row">
+        <div class="mock-trust-row" id="ms-trust-row">
           <span id="ms-t1">🚚 Free shipping over $50</span>
           <span id="ms-t2">↩ 60-day money-back</span>
           <span id="ms-t3">🔒 Secure checkout</span>
           <span id="ms-t4">🔁 Cancel anytime</span>
         </div>
-        <ul class="mock-bullets" style="margin-top:12px">
+        <ul class="mock-bullets" id="ms-bullets" style="margin-top:12px">
           <li id="ms-b1">Steady, crash-free energy — most feel it in week 1</li>
           <li id="ms-b2">Less bloating, calmer digestion — usually within 2 weeks</li>
           <li id="ms-b3">Immune support that builds over your first 30 days</li>
@@ -361,6 +376,7 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
     </div>
 
   </div><!-- /store-mock -->
+  <p class="insights-hint" id="insights-hint">↑ Turn on <strong>CRO Insights</strong> (top-right), then hover or tap the green numbers to see the thinking behind each element.</p>
 </div>
 
 <hr class="section-divider">
@@ -418,12 +434,11 @@ var translations = {
     'tab-before':'Before','tab-after':'After',
     'ms-shop':'Shop','ms-how':'How it works','ms-reviews':'Reviews','ms-story':'Our story','ms-cart':'Cart · 0',
     'ms-reviews-label':'reviews','ms-ingredients':'whole-food ingredients','ms-made':'Made in the USA · 3rd-party tested','ms-guarantee':'60-day money-back guarantee',
-    'ms-hero-h2':'Energy that doesn\'t crash. Digestion that behaves.',
     'ms-hero-p':'One scoop replaces the six supplements collecting dust on your shelf — greens, gut health, immunity and calm focus in a single 30-second morning ritual.',
     'ms-hero-btn':'Start my mornings — from $1.63/day',
     'ms-hero-social':'Joined by 41,000+ people who quit their supplement shelf',
     'ms-img-label':'[ Product image ]','ms-pdp-name':'VERDANT Daily Greens',
-    'ms-pdp-stars':'★★★★★ 4.8 · 6,400 ','ms-verified':'verified reviews',
+    'ms-verified':'verified reviews',
     'ms-sub-label':'Subscribe & Save','ms-per-day':'$1.63/day · –17%',
     'ms-sub-terms':'Delivered monthly · cancel anytime · skip whenever',
     'ms-onetime':'Or one-time: $59 · $1.97/day',
@@ -444,6 +459,7 @@ var translations = {
     'cta-btn':'Get in touch →',
     'cta-disclaimer':'Currently accepting a limited number of free audits. Food & Wellness, Supplements, Outdoor and Sustainable Fashion preferred.',
     'insights-label':'CRO Insights',
+    'insights-hint':'↑ Turn on CRO Insights (top-right), then hover or tap the green numbers to see the thinking behind each element.',
     'footer-text':'CRO Case Study by Jonathan Settele · @conversiondetective · VERDANT is a fictional brand for demonstration purposes.',
   },
   DE: {
@@ -461,7 +477,7 @@ var translations = {
     'obj1':'Verstehe ich sofort, was das ist?','obj2':'Warum hier kaufen und nicht woanders?',
     'obj3':'Kann ich dieser Brand vertrauen?','obj4':'Ist der Preis gerechtfertigt?','obj5':'Was passiert, wenn es mir nicht gefällt?',
     'metrics-label':'Warum das wichtig ist','metrics-h2':'Kleine strukturelle Fixes, kumulativer Impact',
-    'metrics-p':'Du brauchst keinen mehr Traffic zum Wachsen — du brauchst mehr von deinem bestehenden Traffic, der konvertiert. Das sind die Hebel dieses Umbaus, mit typischen Benchmark-Bereichen für jeden Schritt.',
+    'metrics-p':'Du brauchst nicht mehr Traffic zum Wachsen — du brauchst mehr von deinem bestehenden Traffic, der konvertiert. Das sind die Hebel dieses Umbaus, mit typischen Benchmark-Bereichen für jeden Schritt.',
     'm1':'Vertrauenssignale above the fold','m2':'Reviews am Entscheidungspunkt',
     'm3':'Abonnement als Standard-Option','m4':'Mobiles Sticky Add-to-Cart',
     'metrics-disclaimer':'VERDANT ist eine fiktive Brand zur Methodendemonstration. Die obigen Zahlen sind veröffentlichte Branchenbenchmarks für jede Maßnahme — keine gemessenen Ergebnisse eines einzelnen Kunden. Realer Uplift hängt vom jeweiligen Store, Traffic und Angebot ab.',
@@ -470,12 +486,11 @@ var translations = {
     'tab-before':'Vorher','tab-after':'Nachher',
     'ms-shop':'Shop','ms-how':'So funktioniert\'s','ms-reviews':'Bewertungen','ms-story':'Unsere Geschichte','ms-cart':'Warenkorb · 0',
     'ms-reviews-label':'Bewertungen','ms-ingredients':'Vollwert-Zutaten','ms-made':'Hergestellt in den USA · Drittgeprüft','ms-guarantee':'60 Tage Geld-zurück-Garantie',
-    'ms-hero-h2':'Energie ohne Absturz. Verdauung, die funktioniert.',
     'ms-hero-p':'Ein Löffel ersetzt die sechs Supplements, die verstaubt im Regal stehen — Greens, Darmgesundheit, Immunsystem und ruhiger Fokus in einem einzigen 30-Sekunden-Morgenritual.',
     'ms-hero-btn':'Mein Morgenritual starten — ab 1,53€/Tag',
     'ms-hero-social':'Bereits von 41.000+ Menschen genutzt, die ihr Supplement-Regal aufgeräumt haben',
     'ms-img-label':'[ Produktbild ]','ms-pdp-name':'VERDANT Daily Greens',
-    'ms-pdp-stars':'★★★★★ 4,8 · 6.400 ','ms-verified':'verifizierte Bewertungen',
+    'ms-verified':'verifizierte Bewertungen',
     'ms-sub-label':'Sparabo','ms-per-day':'1,53€/Tag · –17%',
     'ms-sub-terms':'Monatliche Lieferung · jederzeit kündbar · jederzeit pausierbar',
     'ms-onetime':'Oder einmalig: 59€ · 1,97€/Tag',
@@ -496,6 +511,7 @@ var translations = {
     'cta-btn':'Melde dich →',
     'cta-disclaimer':'Derzeit nehme ich eine begrenzte Anzahl kostenloser Audits an. Bevorzugt: Food & Wellness, Supplements, Outdoor und Sustainable Fashion.',
     'insights-label':'CRO Insights',
+    'insights-hint':'↑ CRO Insights einschalten (oben rechts), dann mit der Maus über die grünen Zahlen fahren oder tippen, um den Gedanken hinter jedem Element zu sehen.',
     'footer-text':'CRO-Fallstudie von Jonathan Settele · @conversiondetective · VERDANT ist eine fiktive Brand zu Demonstrationszwecken.',
   }
 };
@@ -512,6 +528,22 @@ var BA = {
   }
 };
 
+// headline markup (kept separate so the <em> highlight survives)
+var HEADLINES = {
+  'hero-h1':{
+    EN:'How I\'d turn a good product into a store that <em style="color:var(--accent)">actually sells.</em>',
+    DE:'Wie ich aus einem guten Produkt einen Store mache, der wirklich <em style="color:var(--accent)">verkauft.</em>'
+  },
+  'ms-hero-h2':{
+    EN:'Energy that doesn\'t crash. Digestion that <em style="color:var(--accent)">behaves.</em>',
+    DE:'Energie ohne Absturz. Verdauung, die <em style="color:var(--accent)">funktioniert.</em>'
+  },
+  'ms-pdp-stars':{
+    EN:'★★★★★ 4.8 · 6,400 <span id="ms-verified">verified reviews</span>',
+    DE:'★★★★★ 4,8 · 6.400 <span id="ms-verified">verifizierte Bewertungen</span>'
+  }
+};
+
 function setLang(l) {
   LANG = l;
   document.getElementById('btn-en').className = l==='EN'?'active':'';
@@ -520,19 +552,16 @@ function setLang(l) {
 
   var t = translations[l];
   Object.keys(t).forEach(function(id){
+    if(HEADLINES[id]) return;            // handled below (preserve markup)
     var el = document.getElementById(id);
     if(!el) return;
-    if(id==='hero-h1'){
-      el.innerHTML = l==='DE'
-        ? 'Wie ich aus einem guten Produkt einen Store mache, der wirklich <em style="color:var(--accent)">verkauft.</em>'
-        : 'How I\'d turn a good product into a store that <em style="color:var(--accent)">actually sells.</em>';
-    } else if(id==='ms-hero-h2'){
-      el.innerHTML = l==='DE'
-        ? 'Energie ohne Absturz. Verdauung, die <em style="color:var(--accent)">funktioniert.</em>'
-        : 'Energy that doesn\'t crash. Digestion that <em style="color:var(--accent)">behaves.</em>';
-    } else {
-      el.textContent = t[id];
-    }
+    el.textContent = t[id];
+  });
+
+  // headline elements with inline markup
+  Object.keys(HEADLINES).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.innerHTML = HEADLINES[id][l];
   });
 
   // before/after lists
@@ -542,6 +571,10 @@ function setLang(l) {
     bl.innerHTML = BA[l].before.map(function(i){ return '<li>'+i+'</li>'; }).join('');
     al.innerHTML = BA[l].after.map(function(i){ return '<li>'+i+'</li>'; }).join('');
   }
+
+  // re-attach markers (some anchors were just rewritten) and refresh open popup
+  injectMarkers();
+  if(activeInsightIdx > -1) refreshPopupText();
 }
 
 // ── Insights ──────────────────────────────────────────
@@ -561,7 +594,7 @@ var insights = {
     {title:'Trust Bar above the fold',body:'Ein neuer Besucher entscheidet in 3 Sekunden ob er bleibt. Social Proof, Qualitätssignale und die Garantie müssen sofort sichtbar sein — bevor er scrollt.'},
     {title:'Outcome-first Headline',body:'Menschen kaufen kein Produkt — sie kaufen das Ergebnis. "Energie ohne Absturz" ist ein spürbares Outcome. "Tägliches Greens-Supplement" ist eine Kategoriebeschreibung.'},
     {title:'Abo als Standard',body:'Den Abo-Preis zuerst zu zeigen (niedrigere Zahl) verankert die Wahrnehmung. Die meisten Käufer wählen den Standard — also mach die Option mit dem höchsten LTV zum einfachsten Weg.'},
-    {title:'Preis als Tageskosten',body:'49€/Monat wirkt viel. 1,63€/Tag wirkt trivial. Gleicher Betrag, komplett andere Psychologie. Eine Zeile verändert wie teuer es sich anfühlt.'},
+    {title:'Preis als Tageskosten',body:'49€/Monat wirkt viel. 1,53€/Tag wirkt trivial. Gleicher Betrag, komplett andere Psychologie. Eine Zeile verändert wie teuer es sich anfühlt.'},
     {title:'Reviews am Entscheidungspunkt',body:'Die meisten Stores packen Reviews ans Ende. Aber Vertrauen ist am wichtigsten im Kaufmoment — direkt beim CTA, nicht drei Scrolls weit unten.'},
     {title:'Benefit-Bullets mit Zeitrahmen',body:'Vage Versprechen konvertieren nicht. "Die meisten spüren es in Woche 1" ist konkret, glaubwürdig und reduziert Unsicherheit. Spezifisch schlägt allgemein immer.'},
     {title:'Risikoumkehr beim CTA',body:'Der letzte Einwand vor dem Klick ist "was wenn ich Geld verschwende?" Eine 60-Tage-Garantie direkt neben dem Button beseitigt diesen Zweifel genau im richtigen Moment.'},
@@ -569,50 +602,110 @@ var insights = {
   ]
 };
 
+// each insight -> the element it points to, and whether the badge goes inside (append) or after (sibling)
+var insightAnchors = [
+  {sel:'#mock-trust-bar', after:false},  // 1  trust bar (container, not translated -> safe inside)
+  {sel:'#ms-hero-h2',     after:true},   // 2  outcome headline (translated -> sibling)
+  {sel:'#ms-sub-label',   after:true},   // 3  subscription default (translated -> sibling)
+  {sel:'#ms-per-day',     after:true},   // 4  per-day price (translated -> sibling)
+  {sel:'#ms-pdp-stars',   after:true},   // 5  reviews at decision point (translated -> sibling)
+  {sel:'#ms-bullets',     after:true},   // 6  benefit bullets (sibling after list)
+  {sel:'#ms-trust-row',   after:false},  // 7  risk reversal (container, not translated -> safe inside)
+  {sel:'#ms-atc-btn',     after:true}    // 8  mobile sticky add-to-cart (translated -> sibling)
+];
+
 var activeInsightIdx = -1;
+var hideTimer = null;
+var pinned = false;
 
-function toggleInsights(){
-  insightsOn = !insightsOn;
-  var toggle = document.getElementById('insights-toggle');
-  if(insightsOn) toggle.classList.add('insights-on'); else toggle.classList.remove('insights-on');
-  document.getElementById('store-mock').classList.toggle('insights-active', insightsOn);
-  renderInsightMarkers();
-  if(!insightsOn) closeInsight();
-}
-
-function renderInsightMarkers(){
+function injectMarkers(){
+  // remove any existing markers first (avoids duplicates after a language switch)
   document.querySelectorAll('.insight-marker').forEach(function(m){ m.remove(); });
-  if(!insightsOn) return;
-  var panels = document.querySelectorAll('.insight-panel');
-  panels.forEach(function(panel, idx){
-    var marker = document.createElement('div');
-    marker.className = 'insight-marker';
-    marker.style.cssText = 'top:10px;right:10px';
-    marker.innerHTML = '<div class="insight-num" onclick="showInsight('+idx+',event)">'+( idx+1)+'</div>';
-    panel.appendChild(marker);
+
+  insightAnchors.forEach(function(a, idx){
+    var el = document.querySelector(a.sel);
+    if(!el) return;
+    var m = document.createElement('span');
+    m.className = 'insight-marker';
+    m.setAttribute('data-idx', idx);
+    m.setAttribute('role','button');
+    m.setAttribute('aria-label','CRO insight '+(idx+1));
+    m.textContent = (idx+1);
+
+    if(a.after){ el.parentNode.insertBefore(m, el.nextSibling); }
+    else { el.appendChild(m); }
+
+    m.addEventListener('mouseenter', function(){ clearHide(); showInsight(idx, m); });
+    m.addEventListener('mouseleave', function(){ scheduleHide(); });
+    m.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      pinned = true;
+      showInsight(idx, m);
+    });
   });
 }
 
-function showInsight(idx, e){
-  e.stopPropagation();
+function toggleInsights(){
+  insightsOn = !insightsOn;
+  document.getElementById('insights-toggle').classList.toggle('insights-on', insightsOn);
+  document.getElementById('store-mock').classList.toggle('insights-active', insightsOn);
+  document.getElementById('insights-hint').style.display = insightsOn ? 'none' : '';
+  if(!insightsOn) closeInsight();
+}
+
+function showInsight(idx, anchorEl){
   var data = insights[LANG][idx];
   if(!data) return;
-  var popup = document.getElementById('insight-popup');
+  document.querySelectorAll('.insight-marker.active').forEach(function(m){ m.classList.remove('active'); });
+  if(anchorEl) anchorEl.classList.add('active');
+
   document.getElementById('insight-title').textContent = data.title;
   document.getElementById('insight-body').textContent  = data.body;
-  var rect = e.target.getBoundingClientRect();
-  popup.style.top  = (rect.bottom + window.scrollY + 8) + 'px';
-  popup.style.left = Math.min(rect.left, window.innerWidth - 340) + 'px';
-  popup.classList.add('show');
+
+  var popup = document.getElementById('insight-popup');
+  popup.classList.add('show'); // show first so we can measure height
+  var pw = popup.offsetWidth || 320;
+  var ph = popup.offsetHeight || 120;
+  var rect = (anchorEl || document.getElementById('store-mock')).getBoundingClientRect();
+
+  var left = Math.max(12, Math.min(rect.left, window.innerWidth - pw - 12));
+  var top  = rect.bottom + 8;
+  if(top + ph > window.innerHeight - 12){ top = Math.max(12, rect.top - ph - 8); } // flip above if no room
+  popup.style.left = left + 'px';
+  popup.style.top  = top + 'px';
+
   activeInsightIdx = idx;
 }
+
+function refreshPopupText(){
+  var data = insights[LANG][activeInsightIdx];
+  if(!data) return;
+  document.getElementById('insight-title').textContent = data.title;
+  document.getElementById('insight-body').textContent  = data.body;
+}
+
+function scheduleHide(){ clearHide(); hideTimer = setTimeout(function(){ if(!pinned) closeInsight(); }, 220); }
+function clearHide(){ if(hideTimer){ clearTimeout(hideTimer); hideTimer = null; } }
+
 function closeInsight(){
   document.getElementById('insight-popup').classList.remove('show');
+  document.querySelectorAll('.insight-marker.active').forEach(function(m){ m.classList.remove('active'); });
   activeInsightIdx = -1;
+  pinned = false;
 }
+
+// keep popup open while the pointer is on it
+(function(){
+  var popup = document.getElementById('insight-popup');
+  popup.addEventListener('mouseenter', clearHide);
+  popup.addEventListener('mouseleave', scheduleHide);
+})();
+
+// clicking anywhere outside a marker / the popup closes it
 document.addEventListener('click', function(e){
-  if(!e.target.closest('.insight-popup') && !e.target.closest('.insight-num')) closeInsight();
+  if(!e.target.closest('#insight-popup') && !e.target.closest('.insight-marker')) closeInsight();
 });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeInsight(); });
 
 // ── Page toggle (Before / After) ──────────────────────
 function setPage(p){
@@ -621,9 +714,11 @@ function setPage(p){
   var mock = document.getElementById('store-mock');
   mock.classList.toggle('before-store', p==='before');
   document.getElementById('mock-trust-bar').style.display = p==='after'?'flex':'none';
+  closeInsight();
 }
 
 // init
+injectMarkers();
 setPage('after');
 </script>
 </body>

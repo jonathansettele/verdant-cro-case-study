@@ -111,11 +111,14 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 .mock-hero{padding:32px 20px;text-align:center}
 .mock-hero h2{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.25}
 .mock-hero p{font-size:.88rem;color:var(--dim);margin-bottom:16px;max-width:460px;margin-left:auto;margin-right:auto}
-.mock-hero-btn{display:inline-block;background:var(--green2);color:#fff;padding:11px 22px;border-radius:8px;font-weight:700;font-size:.88rem}
+.mock-hero-btn{display:inline-block;background:var(--green2);color:#fff;padding:11px 22px;border-radius:8px;font-weight:700;font-size:.88rem;cursor:pointer}
 .mock-hero-social{font-size:.75rem;color:var(--muted);margin-top:10px}
-.mock-pdp{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px 20px}
+
+/* PDP grid — align-items:start keeps columns from stretching / overflowing */
+.mock-pdp{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px 20px;align-items:start}
 @media(max-width:580px){.mock-pdp{grid-template-columns:1fr}}
-.mock-img{background:var(--bg3);border:1px solid var(--border);border-radius:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem}
+.mock-img{background:var(--bg3);border:1px solid var(--border);border-radius:8px;aspect-ratio:1;max-height:300px;align-self:start;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem}
+.mock-info{min-width:0}
 .mock-info h3{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:4px}
 .mock-stars{font-size:.8rem;color:var(--accent);margin-bottom:10px}
 .mock-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
@@ -127,6 +130,14 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 .mock-bullets{list-style:none;margin-top:10px}
 .mock-bullets li{font-size:.84rem;color:var(--dim);padding:3px 0 3px 16px;position:relative}
 .mock-bullets li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:800}
+
+/* weak (Before) variants */
+.mock-hero-btn-weak{display:inline-block;background:var(--bg3);color:var(--dim);border:1px solid var(--border);padding:11px 22px;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer}
+.mock-btn-weak{width:100%;background:var(--bg3);color:var(--dim);border:1px solid var(--border);padding:13px;border-radius:8px;font-weight:600;font-size:.9rem;margin:12px 0 8px;cursor:pointer}
+.mock-price-plain{font-size:1.4rem;font-weight:800;color:#fff;margin:6px 0 10px}
+.mock-desc{font-size:.84rem;color:var(--dim);line-height:1.65}
+.mock-reviews-link{font-size:.76rem;color:var(--muted);text-decoration:underline;margin-bottom:12px;display:inline-block}
+.before-tag{display:block;font-size:.7rem;color:var(--muted);font-style:italic;margin-top:12px}
 
 /* ── INSIGHT MARKERS (numbered badges) ── */
 .insight-marker{
@@ -157,9 +168,6 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 .page-tab{padding:7px 16px;border-radius:6px;font-size:.82rem;font-weight:700;color:var(--muted);cursor:pointer;border:none;background:none;transition:all .15s}
 .page-tab.active{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
 
-/* before store (grayed) */
-.before-store{opacity:.55;pointer-events:none;filter:grayscale(.3)}
-
 /* cta section */
 .cta-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:36px;text-align:center;margin-top:48px}
 .cta-section h2{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:10px}
@@ -170,7 +178,6 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,15,10,.92);backdrop-filt
 
 /* hint shown when insights off */
 .insights-hint{font-size:.78rem;color:var(--muted);margin:14px 0 0;text-align:center}
-.insights-active ~ .insights-hint{display:none}
 
 /* footer */
 footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-size:.78rem;color:var(--muted);max-width:900px;margin:0 auto}
@@ -303,17 +310,50 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
 <div class="section" id="store">
   <div class="section-label" id="store-label">See it in action</div>
   <h2 id="store-h2">Landing page &amp; product page — rebuilt</h2>
-  <p style="color:var(--dim);max-width:580px;line-height:1.65;margin-bottom:24px" id="store-p">Toggle CRO Insights (top-right) to see the psychology behind every element. Switch between Before and After to feel the difference.</p>
+  <p style="color:var(--dim);max-width:580px;line-height:1.65;margin-bottom:24px" id="store-p">Switch between Before and After to feel the difference. On the After version, toggle CRO Insights (top-right) and hover or tap the green numbers.</p>
 
   <div class="page-tabs">
     <button class="page-tab" id="tab-before" onclick="setPage('before')">Before</button>
     <button class="page-tab active" id="tab-after" onclick="setPage('after')">After</button>
   </div>
 
-  <!-- STORE MOCK -->
-  <div id="store-mock">
+  <!-- ════════ BEFORE MOCK (intentionally weak) ════════ -->
+  <div id="store-mock-before" style="display:none">
+    <div class="mock-nav">
+      <span class="mock-nav-logo">VERD·ANT</span>
+      <div class="mock-nav-links">
+        <span id="bf-shop">Shop</span>
+        <span id="bf-how">How it works</span>
+        <span id="bf-reviews">Reviews</span>
+        <span id="bf-story">Our story</span>
+      </div>
+      <span class="mock-nav-cart" id="bf-cart">Cart · 0</span>
+    </div>
 
-    <!-- NAV -->
+    <!-- no trust bar -->
+
+    <div class="mock-hero mock-section">
+      <h2 id="bf-hero-h2">VERDANT Daily Greens</h2>
+      <p id="bf-hero-p">A premium daily greens powder with 75 ingredients including vitamins, minerals, probiotics and superfoods.</p>
+      <span class="mock-hero-btn-weak" id="bf-cta">Shop Now</span>
+    </div>
+
+    <div class="mock-pdp mock-section">
+      <div class="mock-img" id="bf-img-label">[ Product image ]</div>
+      <div class="mock-info">
+        <h3 id="bf-pdp-name">VERDANT Daily Greens</h3>
+        <a class="mock-reviews-link" id="bf-reviews-link">(see reviews)</a>
+        <div class="mock-price-plain" id="bf-price">$59.00</div>
+        <button class="mock-btn-weak" id="bf-atc">Add to Cart</button>
+        <p class="mock-desc" id="bf-desc">VERDANT Daily Greens is a comprehensive nutritional supplement containing 75 whole-food ingredients. The formula includes a greens blend (spirulina, spinach, kale), a digestive blend with pre- and probiotics and enzymes, an immunity blend with vitamin C, zinc and reishi, and an adaptogen blend with ashwagandha and L-theanine. Mix one scoop with water or your favourite beverage daily. Vegan, gluten-free, dairy-free and third-party tested. Manufactured in the USA in a GMP-certified facility.</p>
+        <span class="before-tag" id="bf-tag">No trust bar · generic headline · grey CTA · raw price · no reviews up top · no guarantee</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ AFTER MOCK (the rebuild) ════════ -->
+  <div id="store-mock-after">
+
     <div class="mock-nav">
       <span class="mock-nav-logo">VERD·ANT</span>
       <div class="mock-nav-links">
@@ -325,7 +365,7 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
       <span class="mock-nav-cart" id="ms-cart">Cart · 0</span>
     </div>
 
-    <!-- TRUST BAR (after only) -->
+    <!-- TRUST BAR -->
     <div class="trust-bar" id="mock-trust-bar">
       <span>★ 4.8 / 5 — 6,400+ <span id="ms-reviews-label">reviews</span></span>
       <span>🌱 75 <span id="ms-ingredients">whole-food ingredients</span></span>
@@ -334,15 +374,15 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
     </div>
 
     <!-- HERO -->
-    <div class="mock-hero mock-section insight-panel">
+    <div class="mock-hero mock-section">
       <h2 id="ms-hero-h2">Energy that doesn't crash. Digestion that <em style="color:var(--accent)">behaves.</em></h2>
       <p id="ms-hero-p">One scoop replaces the <strong>six supplements</strong> collecting dust on your shelf — greens, gut health, immunity and calm focus in a single 30-second morning ritual.</p>
-      <a class="mock-hero-btn" id="ms-hero-btn">Start my mornings — from $1.63/day</a>
+      <span class="mock-hero-btn" id="ms-hero-btn">Start my mornings — from $1.63/day</span>
       <p class="mock-hero-social" id="ms-hero-social">Joined by 41,000+ people who quit their supplement shelf</p>
     </div>
 
     <!-- PDP -->
-    <div class="mock-pdp mock-section insight-panel">
+    <div class="mock-pdp mock-section">
       <div class="mock-img" id="ms-img-label">[ Product image ]</div>
       <div class="mock-info">
         <h3 id="ms-pdp-name">VERDANT Daily Greens</h3>
@@ -375,7 +415,8 @@ footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-si
       </div>
     </div>
 
-  </div><!-- /store-mock -->
+  </div><!-- /store-mock-after -->
+
   <p class="insights-hint" id="insights-hint">↑ Turn on <strong>CRO Insights</strong> (top-right), then hover or tap the green numbers to see the thinking behind each element.</p>
 </div>
 
@@ -413,7 +454,6 @@ var translations = {
   EN: {
     'nav-overview':'Overview','nav-store':'Store','nav-insights':'CRO Insights','nav-deliver':'Deliverables',
     'hero-eyebrow':'Conversion Rate Optimization · Concept Case Study',
-    'hero-h1':'How I\'d turn a good product into a store that actually sells.',
     'hero-sub':'Most DTC stores don\'t have a traffic problem — they have a clarity, trust and friction problem. Here\'s a full landing page and product page rebuilt around buyer psychology, with every decision explained.',
     'hero-btn1':'▶ Start the guided walkthrough','hero-btn2':'See the framework →',
     'brief-label':'The brief','brief-h2':'A real product, a leaking funnel',
@@ -430,8 +470,16 @@ var translations = {
     'm3':'Subscription as the default option','m4':'Mobile sticky add-to-cart',
     'metrics-disclaimer':'VERDANT is a fictional brand created to demonstrate method. The figures above are published industry benchmark ranges for each tactic — not a single client\'s measured results. Real lift depends on the specific store, traffic and offer.',
     'store-label':'See it in action','store-h2':'Landing page & product page — rebuilt',
-    'store-p':'Toggle CRO Insights (top-right) to see the psychology behind every element. Switch between Before and After to feel the difference.',
+    'store-p':'Switch between Before and After to feel the difference. On the After version, toggle CRO Insights (top-right) and hover or tap the green numbers.',
     'tab-before':'Before','tab-after':'After',
+    'bf-shop':'Shop','bf-how':'How it works','bf-reviews':'Reviews','bf-story':'Our story','bf-cart':'Cart · 0',
+    'bf-hero-h2':'VERDANT Daily Greens',
+    'bf-hero-p':'A premium daily greens powder with 75 ingredients including vitamins, minerals, probiotics and superfoods.',
+    'bf-cta':'Shop Now',
+    'bf-img-label':'[ Product image ]','bf-pdp-name':'VERDANT Daily Greens',
+    'bf-reviews-link':'(see reviews)','bf-price':'$59.00','bf-atc':'Add to Cart',
+    'bf-desc':'VERDANT Daily Greens is a comprehensive nutritional supplement containing 75 whole-food ingredients. The formula includes a greens blend (spirulina, spinach, kale), a digestive blend with pre- and probiotics and enzymes, an immunity blend with vitamin C, zinc and reishi, and an adaptogen blend with ashwagandha and L-theanine. Mix one scoop with water or your favourite beverage daily. Vegan, gluten-free, dairy-free and third-party tested. Manufactured in the USA in a GMP-certified facility.',
+    'bf-tag':'No trust bar · generic headline · grey CTA · raw price · no reviews up top · no guarantee',
     'ms-shop':'Shop','ms-how':'How it works','ms-reviews':'Reviews','ms-story':'Our story','ms-cart':'Cart · 0',
     'ms-reviews-label':'reviews','ms-ingredients':'whole-food ingredients','ms-made':'Made in the USA · 3rd-party tested','ms-guarantee':'60-day money-back guarantee',
     'ms-hero-p':'One scoop replaces the six supplements collecting dust on your shelf — greens, gut health, immunity and calm focus in a single 30-second morning ritual.',
@@ -465,7 +513,6 @@ var translations = {
   DE: {
     'nav-overview':'Überblick','nav-store':'Store','nav-insights':'CRO Insights','nav-deliver':'Leistungen',
     'hero-eyebrow':'Conversion Rate Optimierung · Konzept-Fallstudie',
-    'hero-h1':'Wie ich aus einem guten Produkt einen Store mache, der wirklich verkauft.',
     'hero-sub':'Die meisten DTC-Stores haben kein Traffic-Problem — sie haben ein Klarheits-, Vertrauens- und Friction-Problem. Hier ist eine vollständig nach Kaufpsychologie neu aufgebaute Landing Page und Produktseite — mit Erklärung zu jeder Entscheidung.',
     'hero-btn1':'▶ Geführten Walkthrough starten','hero-btn2':'Das Framework ansehen →',
     'brief-label':'Der Auftrag','brief-h2':'Ein gutes Produkt, ein undichter Funnel',
@@ -482,8 +529,16 @@ var translations = {
     'm3':'Abonnement als Standard-Option','m4':'Mobiles Sticky Add-to-Cart',
     'metrics-disclaimer':'VERDANT ist eine fiktive Brand zur Methodendemonstration. Die obigen Zahlen sind veröffentlichte Branchenbenchmarks für jede Maßnahme — keine gemessenen Ergebnisse eines einzelnen Kunden. Realer Uplift hängt vom jeweiligen Store, Traffic und Angebot ab.',
     'store-label':'In Aktion sehen','store-h2':'Landing Page & Produktseite — neu aufgebaut',
-    'store-p':'CRO Insights einschalten (oben rechts) um die Psychologie hinter jedem Element zu sehen. Zwischen Vorher und Nachher wechseln um den Unterschied zu spüren.',
+    'store-p':'Zwischen Vorher und Nachher wechseln um den Unterschied zu spüren. In der Nachher-Version CRO Insights einschalten (oben rechts) und über die grünen Zahlen fahren oder tippen.',
     'tab-before':'Vorher','tab-after':'Nachher',
+    'bf-shop':'Shop','bf-how':'So funktioniert\'s','bf-reviews':'Bewertungen','bf-story':'Unsere Geschichte','bf-cart':'Warenkorb · 0',
+    'bf-hero-h2':'VERDANT Daily Greens',
+    'bf-hero-p':'Ein Premium-Greens-Pulver mit 75 Inhaltsstoffen inklusive Vitaminen, Mineralien, Probiotika und Superfoods.',
+    'bf-cta':'Jetzt kaufen',
+    'bf-img-label':'[ Produktbild ]','bf-pdp-name':'VERDANT Daily Greens',
+    'bf-reviews-link':'(Bewertungen ansehen)','bf-price':'59,00 €','bf-atc':'In den Warenkorb',
+    'bf-desc':'VERDANT Daily Greens ist ein umfassendes Nahrungsergänzungsmittel mit 75 vollwertigen Inhaltsstoffen. Die Formel enthält eine Greens-Mischung (Spirulina, Spinat, Grünkohl), eine Verdauungsmischung mit Prä- und Probiotika und Enzymen, eine Immunmischung mit Vitamin C, Zink und Reishi sowie eine Adaptogen-Mischung mit Ashwagandha und L-Theanin. Täglich einen Löffel mit Wasser oder einem Getränk deiner Wahl mischen. Vegan, glutenfrei, laktosefrei und drittgeprüft. Hergestellt in den USA in einer GMP-zertifizierten Anlage.',
+    'bf-tag':'Keine Trust Bar · generische Headline · graue CTA · nackter Preis · keine Reviews oben · keine Garantie',
     'ms-shop':'Shop','ms-how':'So funktioniert\'s','ms-reviews':'Bewertungen','ms-story':'Unsere Geschichte','ms-cart':'Warenkorb · 0',
     'ms-reviews-label':'Bewertungen','ms-ingredients':'Vollwert-Zutaten','ms-made':'Hergestellt in den USA · Drittgeprüft','ms-guarantee':'60 Tage Geld-zurück-Garantie',
     'ms-hero-p':'Ein Löffel ersetzt die sechs Supplements, die verstaubt im Regal stehen — Greens, Darmgesundheit, Immunsystem und ruhiger Fokus in einem einzigen 30-Sekunden-Morgenritual.',
@@ -516,7 +571,6 @@ var translations = {
   }
 };
 
-// before/after translations
 var BA = {
   EN:{
     before:['Hero just states the brand & product name — no outcome, no reason to care','No trust signals above the fold — a skeptical buyer has no anchor','Generic "Shop Now" button, low contrast, easy to ignore','Price shown raw ($59) with no context — feels expensive','Reviews buried at the bottom, far from the buying decision','Wall-of-text description; ingredients dumped in a paragraph','No money-back guarantee near the CTA — the last doubt wins','Not designed for the thumb, where 60–70% of traffic lives'],
@@ -528,7 +582,6 @@ var BA = {
   }
 };
 
-// headline markup (kept separate so the <em> highlight survives)
 var HEADLINES = {
   'hero-h1':{
     EN:'How I\'d turn a good product into a store that <em style="color:var(--accent)">actually sells.</em>',
@@ -552,19 +605,17 @@ function setLang(l) {
 
   var t = translations[l];
   Object.keys(t).forEach(function(id){
-    if(HEADLINES[id]) return;            // handled below (preserve markup)
+    if(HEADLINES[id]) return;
     var el = document.getElementById(id);
     if(!el) return;
     el.textContent = t[id];
   });
 
-  // headline elements with inline markup
   Object.keys(HEADLINES).forEach(function(id){
     var el = document.getElementById(id);
     if(el) el.innerHTML = HEADLINES[id][l];
   });
 
-  // before/after lists
   var bl = document.getElementById('ba-before-list');
   var al = document.getElementById('ba-after-list');
   if(bl && al){
@@ -572,13 +623,13 @@ function setLang(l) {
     al.innerHTML = BA[l].after.map(function(i){ return '<li>'+i+'</li>'; }).join('');
   }
 
-  // re-attach markers (some anchors were just rewritten) and refresh open popup
   injectMarkers();
   if(activeInsightIdx > -1) refreshPopupText();
 }
 
 // ── Insights ──────────────────────────────────────────
 var insightsOn = false;
+var currentPage = 'after';
 var insights = {
   EN:[
     {title:'Trust bar above the fold',body:'A new visitor decides in 3 seconds whether to stay. Social proof, quality signals and the guarantee have to be visible immediately — before they scroll.'},
@@ -602,16 +653,15 @@ var insights = {
   ]
 };
 
-// each insight -> the element it points to, and whether the badge goes inside (append) or after (sibling)
 var insightAnchors = [
-  {sel:'#mock-trust-bar', after:false},  // 1  trust bar (container, not translated -> safe inside)
-  {sel:'#ms-hero-h2',     after:true},   // 2  outcome headline (translated -> sibling)
-  {sel:'#ms-sub-label',   after:true},   // 3  subscription default (translated -> sibling)
-  {sel:'#ms-per-day',     after:true},   // 4  per-day price (translated -> sibling)
-  {sel:'#ms-pdp-stars',   after:true},   // 5  reviews at decision point (translated -> sibling)
-  {sel:'#ms-bullets',     after:true},   // 6  benefit bullets (sibling after list)
-  {sel:'#ms-trust-row',   after:false},  // 7  risk reversal (container, not translated -> safe inside)
-  {sel:'#ms-atc-btn',     after:true}    // 8  mobile sticky add-to-cart (translated -> sibling)
+  {sel:'#mock-trust-bar', after:false},  // 1
+  {sel:'#ms-hero-h2',     after:true},   // 2
+  {sel:'#ms-sub-label',   after:true},   // 3
+  {sel:'#ms-per-day',     after:true},   // 4
+  {sel:'#ms-pdp-stars',   after:true},   // 5
+  {sel:'#ms-bullets',     after:true},   // 6
+  {sel:'#ms-trust-row',   after:false},  // 7
+  {sel:'#ms-atc-btn',     after:true}    // 8
 ];
 
 var activeInsightIdx = -1;
@@ -619,9 +669,7 @@ var hideTimer = null;
 var pinned = false;
 
 function injectMarkers(){
-  // remove any existing markers first (avoids duplicates after a language switch)
   document.querySelectorAll('.insight-marker').forEach(function(m){ m.remove(); });
-
   insightAnchors.forEach(function(a, idx){
     var el = document.querySelector(a.sel);
     if(!el) return;
@@ -631,25 +679,24 @@ function injectMarkers(){
     m.setAttribute('role','button');
     m.setAttribute('aria-label','CRO insight '+(idx+1));
     m.textContent = (idx+1);
-
     if(a.after){ el.parentNode.insertBefore(m, el.nextSibling); }
     else { el.appendChild(m); }
-
     m.addEventListener('mouseenter', function(){ clearHide(); showInsight(idx, m); });
     m.addEventListener('mouseleave', function(){ scheduleHide(); });
-    m.addEventListener('click', function(ev){
-      ev.stopPropagation();
-      pinned = true;
-      showInsight(idx, m);
-    });
+    m.addEventListener('click', function(ev){ ev.stopPropagation(); pinned = true; showInsight(idx, m); });
   });
+}
+
+function updateHint(){
+  document.getElementById('insights-hint').style.display =
+    (currentPage === 'before' || insightsOn) ? 'none' : '';
 }
 
 function toggleInsights(){
   insightsOn = !insightsOn;
   document.getElementById('insights-toggle').classList.toggle('insights-on', insightsOn);
-  document.getElementById('store-mock').classList.toggle('insights-active', insightsOn);
-  document.getElementById('insights-hint').style.display = insightsOn ? 'none' : '';
+  document.getElementById('store-mock-after').classList.toggle('insights-active', insightsOn);
+  updateHint();
   if(!insightsOn) closeInsight();
 }
 
@@ -663,17 +710,16 @@ function showInsight(idx, anchorEl){
   document.getElementById('insight-body').textContent  = data.body;
 
   var popup = document.getElementById('insight-popup');
-  popup.classList.add('show'); // show first so we can measure height
+  popup.classList.add('show');
   var pw = popup.offsetWidth || 320;
   var ph = popup.offsetHeight || 120;
-  var rect = (anchorEl || document.getElementById('store-mock')).getBoundingClientRect();
+  var rect = (anchorEl || document.getElementById('store-mock-after')).getBoundingClientRect();
 
   var left = Math.max(12, Math.min(rect.left, window.innerWidth - pw - 12));
   var top  = rect.bottom + 8;
-  if(top + ph > window.innerHeight - 12){ top = Math.max(12, rect.top - ph - 8); } // flip above if no room
+  if(top + ph > window.innerHeight - 12){ top = Math.max(12, rect.top - ph - 8); }
   popup.style.left = left + 'px';
   popup.style.top  = top + 'px';
-
   activeInsightIdx = idx;
 }
 
@@ -694,14 +740,12 @@ function closeInsight(){
   pinned = false;
 }
 
-// keep popup open while the pointer is on it
 (function(){
   var popup = document.getElementById('insight-popup');
   popup.addEventListener('mouseenter', clearHide);
   popup.addEventListener('mouseleave', scheduleHide);
 })();
 
-// clicking anywhere outside a marker / the popup closes it
 document.addEventListener('click', function(e){
   if(!e.target.closest('#insight-popup') && !e.target.closest('.insight-marker')) closeInsight();
 });
@@ -709,16 +753,19 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeIn
 
 // ── Page toggle (Before / After) ──────────────────────
 function setPage(p){
-  document.getElementById('tab-before').classList.toggle('active', p==='before');
-  document.getElementById('tab-after').classList.toggle('active',  p==='after');
-  var mock = document.getElementById('store-mock');
-  mock.classList.toggle('before-store', p==='before');
-  document.getElementById('mock-trust-bar').style.display = p==='after'?'flex':'none';
+  currentPage = p;
+  var before = p==='before';
+  document.getElementById('tab-before').classList.toggle('active', before);
+  document.getElementById('tab-after').classList.toggle('active',  !before);
+  document.getElementById('store-mock-before').style.display = before ? 'block' : 'none';
+  document.getElementById('store-mock-after').style.display  = before ? 'none'  : 'block';
   closeInsight();
+  updateHint();
 }
 
 // init
 injectMarkers();
+setLang('EN');
 setPage('after');
 </script>
 </body>
